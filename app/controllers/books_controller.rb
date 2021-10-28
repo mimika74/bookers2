@@ -1,4 +1,4 @@
-class PostBookController < ApplicationController
+class BooksController < ApplicationController
 
   def new
   end
@@ -14,6 +14,7 @@ class PostBookController < ApplicationController
 
   def destroy
   end
+
 
 
 end
