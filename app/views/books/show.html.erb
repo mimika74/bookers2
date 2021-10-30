@@ -1,0 +1,12 @@
+
+<div>
+<p>Title:<%=@book.title %></p>
+<p>Opini/p>on</p>
+<p>name:<%=@book.user.name %></p>
+
+<% if @book.user == current_user %>
+<link_to "削除", books_path(@book),method: :delete %>
+  <% end %>
+
+</div>
+
