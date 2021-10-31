@@ -16,6 +16,12 @@
 </ul></div></div></nav>
 </header>
 
+<% if @book.errors.any? %>
+<%= @book.errors.count %>件のエラーが発生しました
+<% @book.errors.full_messages.each do |message| %>
+  <%= message %>
+  <% end %>
+<% end %>
 <main>
     <p id="notice"></p>
     <div class="container">
