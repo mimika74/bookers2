@@ -11,8 +11,8 @@ class BooksController < ApplicationController
     redirect_to books_path
     else
     render :new
-    end 
-  
+    end
+
   end
 
   def index
