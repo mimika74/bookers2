@@ -1,24 +1,23 @@
-<% @book.each do |books| %>
+
 
 <div>
 <h3><%=@user.name %></h3>
-<%= image_tag('sample-author1.jpg') %>
+<%= image_tag('no_image.jpg') %>
 </div>
-<% if @users.id == current_user.id %>
+<% if @user.id == current_user.id %>
 <p><%=link_to "Profile Edit", edit_user_path(@user) %></p>
-<% end %>
+
 
 <div>
   <p>
-  Title:<%= books.title %>
+  Title:
   </p>
   <p>
-  Opinion:<%= books.opinion %>
+  Opinion:
   </p>
   <p>
-    name: <%= books.user.name %>
+  name:
   </p>
 </div>
-<%=link_to books_path(books.id) do %>
-<% end %>
+<%=link_to books_path  %>
 <% end %>
