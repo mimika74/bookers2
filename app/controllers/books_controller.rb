@@ -19,14 +19,16 @@ class BooksController < ApplicationController
   end
 
   def index
+    @user = @book.user
     @book =Book.all
+
   end
 
   def show
-    @books = Book.all
+
     @book = Book.find(params[:id])
     @user = @book.user
-
+    @books = Book.all
   end
 
   def destroy

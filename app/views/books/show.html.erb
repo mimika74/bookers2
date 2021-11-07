@@ -99,16 +99,16 @@
   </thead>
   <tbody>
     <tr>
-        <% @books.each do |book| %>
+          <% @books.each do |book| %>
           <td><a href="/users/:id">
           <img class="attachment user profile_image fallback" src="/assets/no-image.jpg"><br>
           <%= @user.name %></a>
            </td>
-          <td><a href="/books/:id"><%=@book.title %></a></td>
-          <td><%=@book.opinion %></td>
+          <td><a href="/books/:id"><%=book.title %></a></td>
+          <td><%=book.opinion %></td>
           <td><a class="btn btn-sm btn-success edit_book_id" href="/books/:id/edit">Edit</a></td>
           <td><a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_id" rel="nofollow" data-method="delete" href="/books/:id">Destroy</a></td>
-        <% end %>
+          <% end %>
     </tr>
   </tbody>
 </table>
