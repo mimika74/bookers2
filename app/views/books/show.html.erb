@@ -1,15 +1,4 @@
 
-<div>
-<p>Title:<%=@book.title %></p>
-<p>Opinion:<%=@book.opinion %></p>
-<p>name:<%=@book.user.name %></p>
-
-<% if @book.user == current_user %>
-<%= link_to "削除", books_path(@book),method: :delete %>
-  <% end %>
-
-</div>
-
 
 <head>
     <title>Bookers2-debug</title>
@@ -41,7 +30,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-          <li><a class="fas fa-home nav-link text-light" href="/users/:id"> Home</a></li>
+          <li><a class="fas fa-home nav-link text-light" href=user_path(current_user.id)> Home</a></li>
           <li><a class="fas fa-users nav-link text-light" href="/users"> Users</a></li>
           <li><a class="fas fa-book-open nav-link text-light" href="/books"> Books</a></li>
           <li><a class="fas fa-sign-out-alt nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out"> Log out</a></li>
@@ -99,11 +88,11 @@
   </thead>
   <tbody>
     <tr>
-          <% @books.each do |book| %>
-          <td><a href="/users/:id">
+          <% @book.each do |book| %>
+         <td> <a href="/users/:id">
           <img class="attachment user profile_image fallback" src="/assets/no-image.jpg"><br>
-          <%= @user.name %></a>
-           </td>
+          <%= @user.name %></a></td>
+
           <td><a href="/books/:id"><%=book.title %></a></td>
           <td><%=book.opinion %></td>
           <td><a class="btn btn-sm btn-success edit_book_id" href="/books/:id/edit">Edit</a></td>

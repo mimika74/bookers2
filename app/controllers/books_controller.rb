@@ -19,16 +19,19 @@ class BooksController < ApplicationController
   end
 
   def index
-    @user = @book.user
-    @book =Book.all
 
+
+    @books =Book.all
+    @user = @book
   end
 
   def show
 
     @book = Book.find(params[:id])
     @user = @book.user
-    @books = Book.all
+    @book = Book.all
+    @book = @user.books.page(params[:page]).reverse_order
+
   end
 
   def destroy
