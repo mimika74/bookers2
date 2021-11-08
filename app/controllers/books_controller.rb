@@ -24,6 +24,8 @@ class BooksController < ApplicationController
     @books =Book.all
     @user = @book
 
+    @book = @user
+
   end
 
   def show
@@ -32,6 +34,10 @@ class BooksController < ApplicationController
     @user = @book.user
     @book = Book.all
     @book = @user.books.page(params[:page]).reverse_order
+
+  end
+
+  def edit
 
   end
 

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    @user = User.new
     @book = Book.new
   end
 
@@ -17,6 +18,9 @@ class UsersController < ApplicationController
 
    @users = User.all
 
+    @books = @users
+
+
 
  end
 
@@ -27,8 +31,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @books = User.find(params[:id])
-    @books.update(user_params)
+    @users = User.find(params[:id])
+
+    @users.update(user_params)
     redirect_to user_path(@user.id)
   end
 
