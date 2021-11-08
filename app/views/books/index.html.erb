@@ -66,16 +66,17 @@
     </tr>
   </thead>
   <tbody>
-    <tr><% @books.each do |book| %>
+    <% @books.each do |book| %>
+      <tr>
           <td><a href=user_path(current_user.id) >
             <img class="attachment user profile_image fallback" src="/assets/no-image.jpg"><br>
             <%= book.user.name %></a>
             </td>
           <td><a href="/books/:id"><%= book.title %></a></td>
           <td><%= book.opinion %></td>
+      </tr>
+    <% end %>
 
-        <% end %>
-        </tr>
   </tbody>
 </table>
     </div>
