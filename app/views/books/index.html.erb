@@ -27,7 +27,7 @@
   <tbody><tr></tr>
   <tr>
 	  <th>name</th>
-	  <th><%=@user.name %></th>
+	  <th><%=@user %></th>
   </tr>
   <tr>
 	  <th>introduction</th>
@@ -66,13 +66,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr><% @book.each do |books| %>
+    <tr><% @books.each do |book| %>
           <td><a href=user_path(current_user.id) >
             <img class="attachment user profile_image fallback" src="/assets/no-image.jpg"><br>
-            <%= books.user.name %></a>
+            <%= book.user.name %></a>
             </td>
-          <td><a href="/books/:id"><%= books.title %></a></td>
-          <td><%= books.opinion %></td>
+          <td><a href="/books/:id"><%= book.title %></a></td>
+          <td><%= book.opinion %></td>
 
         <% end %>
         </tr>
@@ -96,7 +96,6 @@
 
 
 
-<%=link_to books_path(books.id) do %>
-<% end %>
+
 
 

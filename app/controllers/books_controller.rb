@@ -23,6 +23,7 @@ class BooksController < ApplicationController
 
     @books =Book.all
     @user = @book
+
   end
 
   def show
