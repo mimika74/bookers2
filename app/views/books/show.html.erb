@@ -40,7 +40,10 @@
   </nav>
 </header>
       <main>
-        <p id="notice">Welcome! You have signed up successfully.</p>
+            <% flash.each do |message_type, message| %>
+             <%= content_tag :div, message, class: message_type %>
+             <% end %>
+
         <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
@@ -90,18 +93,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+      <tr>
           <% @book.each do |book| %>
-         <td> <a href="/users/:id">
-          <img class="attachment user profile_image fallback" src="/assets/no-image.jpg"><br>
-          <%= @user.name %></a></td>
-
-          <td><link_to <%=book.title %></td>
+           <td><img class="attachment user profile_image fallback" src="/assets/no-image.jpg"><br>
+          <a href= <%= @user.name %>, user_path(user.id) %></a></td>
+          <td><%=book.title %></td>
           <td><%=book.opinion %></td>
           <td><a class="btn btn-sm btn-success edit_book_id" href="/books/:id/edit">Edit</a></td>
           <td><a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_id" rel="nofollow" data-method="delete" href="/books/:id">Destroy</a></td>
           <% end %>
-    </tr>
+      </tr>
   </tbody>
 </table>
     </div>

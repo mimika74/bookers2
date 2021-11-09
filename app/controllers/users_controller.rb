@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @books = @users
     @books = @user.books.page(params[:page]).reverse_order
 
+
   end
 
  def index
