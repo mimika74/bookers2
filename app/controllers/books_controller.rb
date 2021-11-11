@@ -38,13 +38,24 @@ class BooksController < ApplicationController
   end
 
   def edit
+     @book = Book.find(params[:id])
+     @book.user_id = current_user.id
+
+     @book = @user.books.page(params[:page]).reverse_order
+     
+     if @book.save
+
+    redirect_to book_path(@book.id)
+      else
+    render :new
+   end
 
   end
 
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to books_path
+    redirect_to book_path(@book.id)
   end
 
 private
