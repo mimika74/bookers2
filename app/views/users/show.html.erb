@@ -55,10 +55,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
 
-        <% @books.each do |book| %>
-         <td> <a href=user_path(current_user.id)>
+
+          <% @books.each do |book| %>
+          <tr><td> <a href=user_path(current_user.id)>
           <%=attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', fallback: "no_image.jpg" %><br>
           <%= @user.name %></a></td>
 
@@ -66,9 +66,9 @@
           <td><%=book.opinion %></td>
           <td><a class="btn btn-sm btn-success edit_book_id" href="/books/:id/edit">Edit</a></td>
           <td><a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_id" rel="nofollow" data-method="delete" href="/books/:id">Destroy</a></td>
-          <% end %>
+          </tr><% end %>
 
-        </tr>
+
   </tbody>
 </table>
     </div>

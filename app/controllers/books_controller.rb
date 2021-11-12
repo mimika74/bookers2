@@ -13,7 +13,7 @@ class BooksController < ApplicationController
 
     redirect_to book_path(@book.id)
     else
-    render :new
+    render :show
     end
 
   end
@@ -30,10 +30,12 @@ class BooksController < ApplicationController
 
   def show
 
+
     @book = Book.find(params[:id])
     @user = @book.user
-    @book = Book.all
-    @book = @user.books.page(params[:page]).reverse_order
+
+
+    @books = @user.books.page(params[:page]).reverse_order
 
   end
 
@@ -42,13 +44,13 @@ class BooksController < ApplicationController
      @book.user_id = current_user.id
 
      @book = @user.books.page(params[:page]).reverse_order
-     
-     if @book.save
+
+    if @book.save
 
     redirect_to book_path(@book.id)
-      else
-    render :new
-   end
+    else
+    render :show
+    end
 
   end
 
