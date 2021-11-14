@@ -22,9 +22,8 @@ class BooksController < ApplicationController
 
 
     @books =Book.all
-    @user = @book
-
-    @book = @user
+    @user = @book.user
+     @books = @user.books.page(params[:page]).reverse_order
 
   end
 
