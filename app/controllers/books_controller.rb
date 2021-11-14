@@ -41,23 +41,23 @@ class BooksController < ApplicationController
 
   def edit
      @book = Book.find(params[:id])
-     @book.user_id = current_user.id
-
-     @book = @user.books.page(params[:page]).reverse_order
-
-    if @book.save
-
-    redirect_to book_path(@book.id)
-    else
-    render :show
-    end
+     @user = @book.user
 
   end
 
-  def destroy
+  def update
     @book = Book.find(params[:id])
-    @book.destroy
+
+    @book.update(book_params)
+    @book.save
     redirect_to book_path(@book.id)
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to "/books"
+
   end
 
 private
