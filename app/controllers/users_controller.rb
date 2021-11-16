@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @book = Book.new
 
-    
+
     @books = @user.books.page(params[:page]).reverse_order
 
 
@@ -33,6 +33,8 @@ class UsersController < ApplicationController
   end
 
   def update
+
+    flash[:notice]="You have updated user successfully."
     @user = User.find(params[:id])
 
     @user.update(user_params)
