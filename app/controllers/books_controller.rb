@@ -15,6 +15,8 @@ class BooksController < ApplicationController
 
     redirect_to book_path(@book.id)
     else
+
+    @books =Book.all
     render :index
     end
 
@@ -24,7 +26,7 @@ class BooksController < ApplicationController
 
 
     @books =Book.all
-
+    @book = Book.new
 
   end
 
@@ -66,7 +68,7 @@ class BooksController < ApplicationController
 
 private
 def book_params
-  params.require(:book).permit(:title,:opinion)
+  params.require(:book).permit(:title, :opinion, :profile_image, :introduction_id)
 end
 
 
