@@ -2,21 +2,23 @@
              <%= content_tag :div, message, class: message_type %>
              <% end %>
 
-  <div class="container px-5 px-sm-0">
+<div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
+
+
       <h2>User info</h2>
        <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
 
   <table class="table">
   <tbody>
   <tr>
-	  <th>name</th>
-	  <th><%=@user.name %></th>
+	  <th>name
+	  <%= @user.name %></th>
   </tr>
   <tr>
 	  <th>introduction</th>
-	  <th><%=@user.introduction_id %></th>
+	  <th><%= @user.introduction_id %></th>
   </tr>
  </tbody>
  </table>
@@ -36,3 +38,8 @@
       <%= f.text_area :opinion %>
       <%= f.submit 'Create Book', class: 'btn btn-success' %>
       <% end %>
+
+      </div>
+    </div>
+  </div>
+
