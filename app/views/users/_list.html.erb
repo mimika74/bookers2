@@ -1,6 +1,4 @@
-<% flash.each do |message_type, message| %>
-             <%= content_tag :div, message, class: message_type %>
-             <% end %>
+
 
 
     <div class="col-md-3">
@@ -15,7 +13,7 @@
   </tr>
   <tr>
 	  <th>introduction</th>
-	  <th><%=@user.introduction_id %></th>
+	  <th><%=@user.introduction %></th>
   </tr>
  </tbody>
  </table>

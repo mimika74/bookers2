@@ -7,7 +7,7 @@
 <% end %>
 
 
-            
+
 
     <h2 class="mt-3">Edit book</h2>
       <%= form_with model: @book, local:true do |f| %>
@@ -15,7 +15,7 @@
       <%= f.text_field :title %>
 
       <h6>Opinion</h6>
-      <%= f.text_area :opinion %>
+      <%= f.text_area :body %>
       <%= f.submit 'Update Book', class: 'btn btn-success' %>
       <% end %>
     </div>
