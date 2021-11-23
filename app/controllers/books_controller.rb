@@ -13,7 +13,7 @@ class BooksController < ApplicationController
 
     if @book.save
     flash[:notice] ="You have created book successfully."
-    @book = Book.new
+
     redirect_to book_path(@book.id)
     else
     @user = current_user
@@ -33,12 +33,12 @@ class BooksController < ApplicationController
 
   def show
 
-
     @book = Book.find(params[:id])
+    @book_new = Book.new
     @user = @book.user
 
 
-    @books = @user.books.page(params[:page]).reverse_order
+
 
   end
 
