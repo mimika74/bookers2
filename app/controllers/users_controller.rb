@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
 
-  def new
-    @user = User.new
-    @book = Book.new
-  end
+
 
   def show
 
@@ -11,7 +8,7 @@ class UsersController < ApplicationController
     @book = Book.new
 
 
-    @books = @user.books.page(params[:page]).reverse_order
+    @books = @user.books
 
 
   end
@@ -23,7 +20,7 @@ class UsersController < ApplicationController
 
     @book = Book.new
 
-    @books = @users
+
 
 
 
